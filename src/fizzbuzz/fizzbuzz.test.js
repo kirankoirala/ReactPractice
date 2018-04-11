@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import {assert, expect} from 'chai';
 import FizzBuzz from './FizzBuzz';
 
 describe('getFizzbuzz', () => {
@@ -8,7 +8,8 @@ describe('getFizzbuzz', () => {
     var newFizz = new FizzBuzz();
 
     var result = newFizz.getFizzBuzz(expected_result);
-    assert.equal(result,expected_result);    
+   // assert.equal(result,expected_result);  
+    expect(result).to.eq(expected_result)  ;
   });
 
   it('returns 2', () => {
@@ -20,7 +21,7 @@ describe('getFizzbuzz', () => {
     assert.equal(result,expected_result);    
   });
 
-  [3,6].forEach(function(value) {
+  [3,6,9].forEach(function(value) {
       it('returns Fizz for number divisible by 3 ' + value, function() {
         var newFizz = new FizzBuzz();
         var result = newFizz.getFizzBuzz(value);
@@ -28,7 +29,7 @@ describe('getFizzbuzz', () => {
       });
   });
 
-  [5,10].forEach(function(value) {
+  [5,10, 20].forEach(function(value) {
     it('returns Buzz for number divisible by 5' + value, function() {
       var newFizz = new FizzBuzz();
       var result = newFizz.getFizzBuzz(value);
